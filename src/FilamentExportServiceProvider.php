@@ -2,6 +2,7 @@
 
 namespace AlperenErsoy\FilamentExport;
 
+use Filament\Facades\Filament;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Illuminate\Support\ServiceProvider;
@@ -29,7 +30,7 @@ class FilamentExportServiceProvider extends ServiceProvider
         ], 'views');
     
         if (class_exists('\Filament\Facades\Filament')) {
-            FilamentAsset::serving(function () {
+            Filament::serving(function () {
                 FilamentAsset::register([
                     Js::make('filament-export-0.3.0', __DIR__.'/../resources/js/filament-export.js'),
                 ]);
